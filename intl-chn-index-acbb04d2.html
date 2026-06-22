@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+    <title>观赛·查档·延伸阅读 — 世界杯信息页</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans SC", sans-serif;
+            background: #f4f5f7;
+            color: #2d3e4f;
+            line-height: 1.6;
+            padding: 2rem 1rem;
+        }
+        .page {
+            max-width: 1140px;
+            margin: 0 auto;
+        }
+
+        /* Hero */
+        .hero {
+            background: #ffffff;
+            border-radius: 24px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.04), 0 1px 3px rgba(0,0,0,0.02);
+            padding: 2.5rem 2rem 2rem 2rem;
+            margin-bottom: 2.2rem;
+            border: 1px solid #e6e9ed;
+        }
+        .hero h1 {
+            font-size: 2.2rem;
+            font-weight: 500;
+            letter-spacing: -0.01em;
+            color: #1e2b36;
+            margin-bottom: 0.65rem;
+        }
+        .hero p {
+            font-size: 1.1rem;
+            color: #4d5f6c;
+            max-width: 680px;
+        }
+
+        /* 卡片网格 */
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1.8rem;
+            margin-bottom: 2.4rem;
+        }
+        .card {
+            background: #ffffff;
+            border-radius: 20px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.02), 0 1px 2px rgba(0,0,0,0.02);
+            border: 1px solid #e8ebef;
+            padding: 1.8rem 1.6rem 2rem 1.6rem;
+            transition: box-shadow 0.2s ease, transform 0.15s ease;
+        }
+        .card:hover {
+            box-shadow: 0 8px 18px rgba(0,0,0,0.05);
+            transform: translateY(-2px);
+        }
+        .card h2 {
+            font-size: 1.3rem;
+            font-weight: 500;
+            color: #1f3342;
+            margin-bottom: 1rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 1px solid #eef1f4;
+        }
+        .card p, .card ul {
+            color: #3b4d5b;
+            font-size: 0.98rem;
+        }
+        .card ul {
+            list-style: none;
+            padding-left: 0;
+        }
+        .card li {
+            margin-bottom: 0.55rem;
+            padding-left: 1.2rem;
+            position: relative;
+        }
+        .card li::before {
+            content: "·";
+            color: #7f929d;
+            font-weight: 600;
+            position: absolute;
+            left: 0.1rem;
+        }
+
+        .highlight {
+            display: inline-block;
+            background: #f0f3f6;
+            border-radius: 30px;
+            padding: 0.2rem 0.8rem;
+            font-size: 0.85rem;
+            color: #2f4858;
+            letter-spacing: 0.02em;
+            margin-right: 0.3rem;
+        }
+
+        .link-sentence {
+            font-size: 1rem;
+            background: #ffffff;
+            padding: 1.2rem 1.6rem;
+            border-radius: 50px;
+            border: 1px solid #dde2e7;
+            box-shadow: 0 1px 4px rgba(0,0,0,0.02);
+            margin: 2rem 0 1rem 0;
+            display: inline-block;
+        }
+        .link-sentence a {
+            color: #1f5c7a;
+            text-decoration: none;
+            font-weight: 500;
+            border-bottom: 1px solid #cbd6de;
+            transition: border-color 0.2s;
+        }
+        .link-sentence a:hover {
+            border-bottom-color: #1f5c7a;
+        }
+
+        /* 底部信息 */
+        .footnote {
+            margin-top: 2.8rem;
+            text-align: center;
+            color: #6e808d;
+            font-size: 0.9rem;
+            border-top: 1px solid #dfe4e9;
+            padding-top: 2rem;
+        }
+        .footnote a {
+            color: #2f5c74;
+            text-decoration: none;
+            border-bottom: 1px dotted #b6c6d0;
+        }
+        .footnote a:hover {
+            border-bottom-style: solid;
+        }
+
+        @media (max-width: 640px) {
+            body {
+                padding: 1.2rem 0.8rem;
+            }
+            .hero {
+                padding: 1.8rem 1.2rem;
+            }
+            .hero h1 {
+                font-size: 1.8rem;
+            }
+            .card {
+                padding: 1.4rem 1.2rem;
+            }
+            .link-sentence {
+                padding: 1rem 1.2rem;
+                font-size: 0.95rem;
+                border-radius: 30px;
+                display: block;
+                text-align: center;
+            }
+        }
+    </style>
+</head>
+<body>
+<div class="page">
+
+    <div class="hero">
+        <h1>日常的查询 · 对照 · 延伸</h1>
+        <p>一场世界杯，不止是九十分钟的呐喊。它也是一张庞大的数据网络——赛程、纪录、历史对局、球员履历、战术演变。这个页面围绕 <strong>信息查阅与内容延展</strong> 展开，帮助你在观赛之余，快速定位、对比、深读。</p>
+    </div>
+
+    <div class="grid">
+        <!-- 卡片：快速对照 -->
+        <div class="card">
+            <h2>📋 赛程·纪录对照</h2>
+            <ul>
+                <li>小组赛阶段实时赛果与积分并列查看</li>
+                <li>历史交锋记录（近五届）并排呈现</li>
+                <li>射手榜、助攻榜、红黄牌统计速览</li>
+                <li>典型比赛“数据卡片”——控球率、射正、传球成功率</li>
+            </ul>
+            <p style="margin-top: 0.8rem; color: #4b606f;"><span class="highlight">适用场景</span> 赛前查对手风格，赛后复盘关键数据</p>
+        </div>
+
+        <!-- 卡片：延伸阅读 -->
+        <div class="card">
+            <h2>📖 延伸阅读索引</h2>
+            <ul>
+                <li>历届冠亚军专题 & 经典决赛回顾</li>
+                <li>主办国文化笔记：球场、时差、观赛礼仪</li>
+                <li>规则变迁简史（越位、换人、VAR 引入）</li>
+                <li>球员故事·非虚构系列：从青训到国家队的路径</li>
+            </ul>
+            <p style="margin-top: 0.8rem; color: #4b606f;"><span class="highlight">适用场景</span> 中场休息或通勤时轻松翻阅</p>
+        </div>
+
+        <!-- 卡片：使用建议 -->
+        <div class="card">
+            <h2>🧭 使用建议</h2>
+            <p style="margin-bottom: 0.8rem;">不必一次读完所有内容。可以这样做：</p>
+            <ul>
+                <li>关注你支持的球队所在小组，收藏相关数据页</li>
+                <li>用“对照模式”同时打开两场比赛详情</li>
+                <li>遇到不熟悉的球队或冷门纪录，随时回到页面检索</li>
+                <li>将延伸阅读当作赛间补充，而非赛前预习负担</li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- 嵌入式链接句子（严格符合要求） -->
+    <div style="text-align: center;">
+        <div class="link-sentence">
+            📌 若你需要查阅完整的赛事历史与实时数据，可以前往 <a href="https://intl-chn-worldcup.com">世界杯</a> 信息页，那里整理了更细致的场次档案与统计数据。
+        </div>
+    </div>
+
+    <!-- FAQ 摘要 / 可信提示 -->
+    <div style="background: #ffffff; border-radius: 20px; border: 1px solid #e8ebef; padding: 1.8rem 2rem; margin: 2rem 0 1.5rem 0;">
+        <h2 style="font-size: 1.15rem; font-weight: 500; color: #1f3342; margin-bottom: 1rem;">❓ 常见疑问摘要</h2>
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1.5rem;">
+            <div>
+                <p style="font-weight: 500; margin-bottom: 0.3rem;">数据更新频率？</p>
+                <p style="color: #4b606f; font-size: 0.95rem;">比赛结束后一小时左右完成基础数据录入，关键场次会更快。</p>
+            </div>
+            <div>
+                <p style="font-weight: 500; margin-bottom: 0.3rem;">历史纪录覆盖到哪一年？</p>
+                <p style="color: #4b606f; font-size: 0.95rem;">从 1930 年第一届起，包括预选赛与决赛阶段的主要数据。</p>
+            </div>
+            <div>
+                <p style="font-weight: 500; margin-bottom: 0.3rem;">是否支持移动设备？</p>
+                <p style="color: #4b606f; font-size: 0.95rem;">页面采用响应式布局，手机和平板均可顺畅使用。</p>
+            </div>
+            <div>
+                <p style="font-weight: 500; margin-bottom: 0.3rem;">需要注册或付费吗？</p>
+                <p style="color: #4b606f; font-size: 0.95rem;">不需要。所有公开数据与文章均可直接浏览。</p>
+            </div>
+        </div>
+        <p style="margin-top: 1.2rem; font-size: 0.9rem; color: #5d727f;">本索引页为辅助性介绍，内容力求准确，但正式数据请以赛事官方发布为准。如有疑问可参考对应来源。</p>
+    </div>
+
+    <div class="footnote">
+        <p>所有信息仅为观赛辅助，不构成投注建议或商业承诺。<br>
+        你可以在 <a href="https://intl-chn-worldcup.com">世界杯</a> 获得更完整的内容。</p>
+    </div>
+
+</div>
+</body>
+</html>
