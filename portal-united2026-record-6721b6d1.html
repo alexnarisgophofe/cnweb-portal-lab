@@ -1,0 +1,548 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>世界杯官方入口 | Portal United 2026</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+            background: #f8fafb;
+            color: #1a1f2e;
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 1160px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+
+        /* Hero */
+        .hero {
+            background: linear-gradient(135deg, #0b1120 0%, #1a2639 60%, #2c3a58 100%);
+            color: #f0f4fc;
+            padding: 100px 0 72px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::after {
+            content: '';
+            position: absolute;
+            bottom: -40px;
+            right: -40px;
+            width: 340px;
+            height: 340px;
+            background: radial-gradient(circle, rgba(59, 130, 246, 0.08) 0%, transparent 70%);
+            pointer-events: none;
+        }
+
+        .hero-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 48px;
+            align-items: center;
+        }
+
+        .hero-text h1 {
+            font-size: 2.8rem;
+            font-weight: 700;
+            letter-spacing: -0.02em;
+            line-height: 1.2;
+            margin-bottom: 18px;
+        }
+
+        .hero-text h1 span {
+            color: #60a5fa;
+        }
+
+        .hero-text p {
+            font-size: 1.1rem;
+            color: #cdd9ed;
+            max-width: 520px;
+            margin-bottom: 32px;
+        }
+
+        .hero-cta {
+            display: inline-block;
+            background: #2563eb;
+            color: #fff;
+            padding: 14px 36px;
+            border-radius: 40px;
+            font-weight: 600;
+            font-size: 1.05rem;
+            text-decoration: none;
+            transition: background 0.25s, transform 0.15s;
+            box-shadow: 0 4px 14px rgba(37, 99, 235, 0.35);
+        }
+
+        .hero-cta:hover {
+            background: #1d4ed8;
+            transform: translateY(-2px);
+        }
+
+        .hero-visual {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .hero-card {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(4px);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-radius: 24px;
+            padding: 32px 28px;
+            width: 100%;
+            max-width: 380px;
+            box-shadow: 0 20px 40px -12px rgba(0, 0, 0, 0.5);
+        }
+
+        .hero-card .stat {
+            display: flex;
+            justify-content: space-between;
+            padding: 12px 0;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+        }
+
+        .hero-card .stat:last-child {
+            border-bottom: none;
+        }
+
+        .hero-card .stat-label {
+            color: #b0c4e8;
+            font-size: 0.9rem;
+        }
+
+        .hero-card .stat-value {
+            color: #f0f4fc;
+            font-weight: 600;
+            letter-spacing: 0.3px;
+        }
+
+        .hero-card .badge {
+            display: inline-block;
+            background: #2563eb;
+            color: #fff;
+            font-size: 0.7rem;
+            font-weight: 600;
+            padding: 2px 10px;
+            border-radius: 30px;
+            margin-left: 8px;
+            vertical-align: middle;
+        }
+
+        /* 优势区 */
+        .advantages {
+            padding: 80px 0 56px;
+            background: #ffffff;
+        }
+
+        .section-title {
+            font-size: 1.9rem;
+            font-weight: 700;
+            letter-spacing: -0.02em;
+            margin-bottom: 12px;
+            color: #0f172a;
+        }
+
+        .section-sub {
+            font-size: 1rem;
+            color: #475569;
+            max-width: 600px;
+            margin-bottom: 48px;
+        }
+
+        .advantage-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 32px;
+        }
+
+        .advantage-card {
+            background: #f9fafc;
+            border-radius: 20px;
+            padding: 32px 24px;
+            border: 1px solid #eaeef5;
+            transition: box-shadow 0.2s, border-color 0.2s;
+        }
+
+        .advantage-card:hover {
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.04);
+            border-color: #d0dae9;
+        }
+
+        .advantage-card .icon {
+            font-size: 2.2rem;
+            margin-bottom: 16px;
+            display: block;
+        }
+
+        .advantage-card h3 {
+            font-size: 1.2rem;
+            font-weight: 600;
+            margin-bottom: 10px;
+            color: #0f172a;
+        }
+
+        .advantage-card p {
+            font-size: 0.95rem;
+            color: #475569;
+        }
+
+        /* 说明区 */
+        .explanation {
+            padding: 64px 0 72px;
+            background: #f4f7fa;
+        }
+
+        .explanation-flex {
+            display: flex;
+            gap: 48px;
+            align-items: flex-start;
+            flex-wrap: wrap;
+        }
+
+        .explanation-main {
+            flex: 2;
+            min-width: 280px;
+        }
+
+        .explanation-main h2 {
+            font-size: 1.7rem;
+            font-weight: 700;
+            margin-bottom: 18px;
+            color: #0f172a;
+        }
+
+        .explanation-main p {
+            margin-bottom: 16px;
+            color: #2d3a4f;
+        }
+
+        .explanation-main a {
+            color: #2563eb;
+            font-weight: 500;
+            text-decoration: underline;
+            text-underline-offset: 3px;
+            transition: color 0.2s;
+        }
+
+        .explanation-main a:hover {
+            color: #1d4ed8;
+        }
+
+        .explanation-side {
+            flex: 1.2;
+            min-width: 220px;
+            background: #ffffff;
+            border-radius: 18px;
+            padding: 28px 24px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.02);
+            border: 1px solid #e2e8f0;
+        }
+
+        .explanation-side h4 {
+            font-size: 1.1rem;
+            font-weight: 600;
+            margin-bottom: 14px;
+            color: #0f172a;
+        }
+
+        .explanation-side ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .explanation-side li {
+            padding: 8px 0;
+            border-bottom: 1px solid #edf1f7;
+            font-size: 0.92rem;
+            color: #334155;
+            display: flex;
+            align-items: baseline;
+            gap: 8px;
+        }
+
+        .explanation-side li::before {
+            content: '›';
+            color: #2563eb;
+            font-weight: 700;
+            font-size: 1.1rem;
+        }
+
+        .explanation-side li:last-child {
+            border-bottom: none;
+        }
+
+        /* FAQ 摘要 */
+        .faq-summary {
+            padding: 60px 0 56px;
+            background: #ffffff;
+        }
+
+        .faq-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px 40px;
+            margin-top: 36px;
+        }
+
+        .faq-item {
+            border-bottom: 1px solid #e6edf4;
+            padding-bottom: 16px;
+            margin-bottom: 10px;
+        }
+
+        .faq-item h4 {
+            font-size: 1rem;
+            font-weight: 600;
+            color: #0f172a;
+            margin-bottom: 5px;
+        }
+
+        .faq-item p {
+            font-size: 0.92rem;
+            color: #4a5a72;
+            line-height: 1.5;
+        }
+
+        .faq-link {
+            margin-top: 24px;
+            text-align: right;
+        }
+
+        .faq-link a {
+            color: #2563eb;
+            font-weight: 500;
+            text-decoration: underline;
+            text-underline-offset: 3px;
+        }
+
+        .faq-link a:hover {
+            color: #1d4ed8;
+        }
+
+        /* 底部 */
+        .footer {
+            background: #0f172a;
+            color: #b0c0da;
+            padding: 40px 0 32px;
+            font-size: 0.9rem;
+        }
+
+        .footer-inner {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            align-items: center;
+            gap: 16px;
+        }
+
+        .footer-links a {
+            color: #94a3b8;
+            text-decoration: none;
+            margin: 0 14px 0 0;
+            transition: color 0.2s;
+        }
+
+        .footer-links a:hover {
+            color: #60a5fa;
+        }
+
+        .footer-copy {
+            color: #718096;
+        }
+
+        /* 响应式 */
+        @media (max-width: 920px) {
+            .hero-grid {
+                grid-template-columns: 1fr;
+                gap: 32px;
+            }
+
+            .hero-text h1 {
+                font-size: 2.2rem;
+            }
+
+            .hero-card {
+                max-width: 100%;
+            }
+
+            .advantage-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+
+            .explanation-flex {
+                flex-direction: column;
+            }
+
+            .faq-grid {
+                grid-template-columns: 1fr;
+                gap: 12px;
+            }
+        }
+
+        @media (max-width: 600px) {
+            .hero {
+                padding: 64px 0 48px;
+            }
+
+            .hero-text h1 {
+                font-size: 1.8rem;
+            }
+
+            .advantage-grid {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+
+            .section-title {
+                font-size: 1.5rem;
+            }
+
+            .footer-inner {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<!-- Hero -->
+<section class="hero">
+    <div class="container hero-grid">
+        <div class="hero-text">
+            <h1>通向<span>世界杯</span>的稳定入口</h1>
+            <p>Portal United 2026 为全球球迷提供统一、可靠的赛事信息中枢。实时数据、赛程追踪、深度内容，一页直达。</p>
+            <a href="https://portal-united2026.com" class="hero-cta">世界杯</a>
+        </div>
+        <div class="hero-visual">
+            <div class="hero-card">
+                <div class="stat">
+                    <span class="stat-label">实时覆盖</span>
+                    <span class="stat-value">48 支球队 <span class="badge">Live</span></span>
+                </div>
+                <div class="stat">
+                    <span class="stat-label">赛事场次</span>
+                    <span class="stat-value">104 场</span>
+                </div>
+                <div class="stat">
+                    <span class="stat-label">内容更新</span>
+                    <span class="stat-value">每 6 分钟</span>
+                </div>
+                <div class="stat">
+                    <span class="stat-label">稳定运行</span>
+                    <span class="stat-value">99.97%</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- 优势区 -->
+<section class="advantages">
+    <div class="container">
+        <h2 class="section-title">为什么选择这个入口</h2>
+        <p class="section-sub">围绕世界杯构建的信息基础设施，强调稳定、简洁与及时。</p>
+        <div class="advantage-grid">
+            <div class="advantage-card">
+                <span class="icon">📡</span>
+                <h3>持续同步</h3>
+                <p>数据源经过多节点校验，赛程变动、比分更新、阵容信息在数分钟内完成同步。</p>
+            </div>
+            <div class="advantage-card">
+                <span class="icon">🧭</span>
+                <h3>无冗余导航</h3>
+                <p>页面结构经过精简，核心信息不超过两次点击即可到达。适合快速查阅。</p>
+            </div>
+            <div class="advantage-card">
+                <span class="icon">🔒</span>
+                <h3>可靠访问</h3>
+                <p>基于静态部署与全球 CDN，降低因流量高峰导致的访问延迟或中断风险。</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- 说明区 -->
+<section class="explanation">
+    <div class="container explanation-flex">
+        <div class="explanation-main">
+            <h2>关于世界杯信息页面的说明</h2>
+            <p>
+                Portal United 2026 并非官方赛事网站，而是一个面向中文用户的整合型信息页。我们将分散在不同渠道的赛程、分组、球队动态等内容汇聚于一处，减少用户的多平台切换成本。
+            </p>
+            <p>
+                对于希望快速了解 <a href="https://portal-united2026.com">世界杯</a> 赛程、分组形势或关键数据的用户，本页面提供结构化摘要与导航。所有数据均标注来源与更新时间，便于交叉验证。
+            </p>
+            <p>
+                我们建议将本页加入书签，作为赛事期间的信息锚点。同时欢迎通过页面底部的联系方式反馈改进建议。
+            </p>
+        </div>
+        <div class="explanation-side">
+            <h4>页面覆盖范围</h4>
+            <ul>
+                <li>完整赛程表（含当地时间与北京时间）</li>
+                <li>小组积分榜 & 晋级形势图</li>
+                <li>关键比赛前瞻与赛后摘要</li>
+                <li>球队 & 球员数据库（基础信息）</li>
+                <li>历史数据对比（历届世界杯）</li>
+            </ul>
+        </div>
+    </div>
+</section>
+
+<!-- FAQ 摘要 -->
+<section class="faq-summary">
+    <div class="container">
+        <h2 class="section-title">常见问题摘要</h2>
+        <div class="faq-grid">
+            <div class="faq-item">
+                <h4>数据更新频率是多少？</h4>
+                <p>比赛进行期间，比分与关键事件通常在 2–5 分钟内更新；赛程与分组信息每日同步两次。</p>
+            </div>
+            <div class="faq-item">
+                <h4>页面是否支持移动设备？</h4>
+                <p>完全响应式设计，手机与平板均可获得良好的浏览体验，无需额外缩放。</p>
+            </div>
+            <div class="faq-item">
+                <h4>信息源来自哪里？</h4>
+                <p>主要整合自公开赛事数据接口与官方新闻稿，部分内容经人工编译整理。</p>
+            </div>
+            <div class="faq-item">
+                <h4>是否提供多语言版本？</h4>
+                <p>目前以中文为主，核心数据字段已标注英文对照，后续根据需求评估扩展。</p>
+            </div>
+        </div>
+        <div class="faq-link">
+            <a href="https://portal-united2026.com">世界杯</a>
+        </div>
+    </div>
+</section>
+
+<!-- 底部 -->
+<footer class="footer">
+    <div class="container footer-inner">
+        <div class="footer-links">
+            <a href="https://portal-united2026.com">世界杯</a>
+            <a href="#">关于本站</a>
+            <a href="#">数据来源</a>
+            <a href="#">联系</a>
+        </div>
+        <div class="footer-copy">
+            &copy; 2026 Portal United · 信息聚合页面
+        </div>
+    </div>
+</footer>
+
+</body>
+</html>
