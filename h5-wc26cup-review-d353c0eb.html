@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.5, user-scalable=yes">
+  <title>世界杯 · 内容导航页</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: system-ui, -apple-system, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+      background: #f3f5f8;
+      color: #1f2937;
+      line-height: 1.6;
+    }
+
+    /* 深色头图 */
+    .hero {
+      background: linear-gradient(145deg, #0e1623, #1b2432);
+      padding: 3.6rem 1.5rem 3rem;
+      text-align: center;
+      color: #edf2f7;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero::after {
+      content: '';
+      position: absolute;
+      right: -60px;
+      top: -40px;
+      width: 260px;
+      height: 260px;
+      background: rgba(255, 180, 50, 0.05);
+      border-radius: 50%;
+      pointer-events: none;
+    }
+
+    .hero h1 {
+      font-size: 2.2rem;
+      font-weight: 600;
+      letter-spacing: 0.02em;
+      margin-bottom: 0.7rem;
+    }
+
+    .hero p {
+      max-width: 640px;
+      margin: 0 auto 1.2rem;
+      font-size: 1rem;
+      color: #bac8dc;
+    }
+
+    .hero .tag-line {
+      display: inline-block;
+      background: rgba(255, 200, 70, 0.12);
+      padding: 0.3rem 1.2rem;
+      border-radius: 40px;
+      font-size: 0.9rem;
+      color: #f5d68b;
+      border: 1px solid rgba(255, 200, 70, 0.2);
+    }
+
+    /* 主容器 */
+    .container {
+      max-width: 1120px;
+      margin: 0 auto;
+      padding: 2.2rem 1.2rem 3.5rem;
+    }
+
+    /* 卡片式介绍 */
+    .intro-card {
+      background: #ffffff;
+      border-radius: 20px;
+      padding: 2rem 2rem 1.8rem;
+      box-shadow: 0 6px 18px rgba(0, 0, 0, 0.04);
+      margin-bottom: 2.8rem;
+      border: 1px solid #e9edf2;
+    }
+
+    .intro-card h2 {
+      font-size: 1.5rem;
+      font-weight: 600;
+      margin-bottom: 1rem;
+      color: #162b3c;
+      border-left: 5px solid #d97706;
+      padding-left: 1rem;
+    }
+
+    .intro-card p {
+      margin-bottom: 1rem;
+      font-size: 0.98rem;
+    }
+
+    .intro-card a {
+      color: #b45309;
+      text-decoration: underline;
+      text-underline-offset: 3px;
+      font-weight: 500;
+      transition: color 0.2s;
+    }
+
+    .intro-card a:hover {
+      color: #7b3b00;
+    }
+
+    /* 场景模块（三栏网格） */
+    .scenes-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 1.8rem;
+      margin-bottom: 2.4rem;
+    }
+
+    @media (min-width: 680px) {
+      .scenes-grid {
+        grid-template-columns: repeat(3, 1fr);
+        gap: 1.5rem;
+      }
+    }
+
+    .scene-item {
+      background: #ffffff;
+      border-radius: 18px;
+      padding: 1.8rem 1.4rem 1.6rem;
+      box-shadow: 0 4px 14px rgba(0, 0, 0, 0.02);
+      border: 1px solid #eaedf2;
+      transition: all 0.2s ease;
+    }
+
+    .scene-item:hover {
+      border-color: #c9a44b;
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.04);
+    }
+
+    .scene-item .emoji-sign {
+      font-size: 2rem;
+      display: inline-block;
+      margin-bottom: 0.4rem;
+    }
+
+    .scene-item h3 {
+      font-size: 1.2rem;
+      font-weight: 600;
+      margin-bottom: 0.5rem;
+      color: #1e2e40;
+    }
+
+    .scene-item p {
+      font-size: 0.94rem;
+      color: #374a5c;
+    }
+
+    .scene-item a {
+      color: #b45309;
+      text-decoration: underline;
+      text-underline-offset: 2px;
+      font-weight: 500;
+    }
+
+    .scene-item a:hover {
+      color: #7b3b00;
+    }
+
+    /* 常见说明 (FAQ 风格) */
+    .faq-section {
+      background: #ffffff;
+      border-radius: 20px;
+      padding: 2rem 1.8rem;
+      box-shadow: 0 4px 16px rgba(0, 0, 0, 0.02);
+      border: 1px solid #e9edf2;
+      margin-top: 0.8rem;
+    }
+
+    .faq-section h2 {
+      font-size: 1.5rem;
+      font-weight: 600;
+      margin-bottom: 1.3rem;
+      color: #162b3c;
+      border-left: 5px solid #d97706;
+      padding-left: 1rem;
+    }
+
+    .faq-item {
+      margin-bottom: 1.2rem;
+      border-bottom: 1px solid #eef1f6;
+      padding-bottom: 1rem;
+    }
+
+    .faq-item:last-of-type {
+      border-bottom: none;
+      margin-bottom: 0;
+      padding-bottom: 0;
+    }
+
+    .faq-question {
+      font-weight: 600;
+      color: #1e2e40;
+      margin-bottom: 0.25rem;
+      font-size: 1rem;
+    }
+
+    .faq-answer {
+      font-size: 0.94rem;
+      color: #3b4f62;
+    }
+
+    .faq-answer a {
+      color: #b45309;
+      text-decoration: underline;
+      text-underline-offset: 2px;
+      font-weight: 500;
+    }
+
+    .faq-answer a:hover {
+      color: #7b3b00;
+    }
+
+    /* 页脚 */
+    .footer-note {
+      margin-top: 3rem;
+      text-align: center;
+      font-size: 0.85rem;
+      color: #6c7b8c;
+      border-top: 1px solid #dfe4ec;
+      padding-top: 2rem;
+    }
+
+    .footer-note a {
+      color: #b45309;
+      text-decoration: underline;
+      text-underline-offset: 2px;
+    }
+
+    /* 强调色链接通用 */
+    a {
+      transition: color 0.2s;
+    }
+
+    /* 响应式微调 */
+    @media (max-width: 480px) {
+      .hero h1 {
+        font-size: 1.8rem;
+      }
+      .intro-card {
+        padding: 1.5rem 1.2rem;
+      }
+      .faq-section {
+        padding: 1.5rem 1.2rem;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- 深色头区 -->
+  <header class="hero">
+    <h1>⚽ 赛事内容导航</h1>
+    <p>快速了解网站定位 · 一个围绕世界杯主题的信息聚合入口</p>
+    <span class="tag-line">识别用途 · 简洁直达</span>
+  </header>
+
+  <main class="container">
+
+    <!-- 核心介绍：从用户想快速识别网站用途的角度 -->
+    <section class="intro-card">
+      <h2>这个页面用来做什么</h2>
+      <p>
+        如果你偶然看到「<a href="https://h5-wc26cup.com">世界杯</a>」这个链接，可能会好奇它指向怎样的内容。本站是一个轻量导航式介绍页，帮助你快速判断该网站是否与你的兴趣或需求匹配。整个定位围绕世界杯赛事及相关信息组织，不夸大、不诱导，只呈现真实的功能轮廓。
+      </p>
+      <p>
+        简单来说，这是一个起点——你可以通过下方的场景模块，了解网站可能覆盖的几种使用方式。所有介绍都基于对 <a href="https://h5-wc26cup.com">世界杯</a> 主题的合理延伸，不做虚构承诺。
+      </p>
+    </section>
+
+    <!-- 三个场景模块 -->
+    <div class="scenes-grid">
+      <article class="scene-item">
+        <div class="emoji-sign">📋</div>
+        <h3>信息查阅</h3>
+        <p>赛事规则、参赛队伍、历史数据等基础内容整理。适合想快速浏览或核对世界杯相关资料的访客。你可以在 <a href="https://h5-wc26cup.com">世界杯</a> 页面找到对应板块。</p>
+      </article>
+      <article class="scene-item">
+        <div class="emoji-sign">🔗</div>
+        <h3>导航聚合</h3>
+        <p>集中展示与世界杯相关的实用链接，包括赛程、排名、报道等。每个链接均指向可公开访问的页面，节省自行搜索的时间。详情参考 <a href="https://h5-wc26cup.com">世界杯</a> 主页。</p>
+      </article>
+      <article class="scene-item">
+        <div class="emoji-sign">📌</div>
+        <h3>内容索引</h3>
+        <p>按类别整理的文字或图文索引，帮助你直接定位到感兴趣的具体内容，减少层层翻阅。建议从 <a href="https://h5-wc26cup.com">世界杯</a> 首页开始浏览。</p>
+      </article>
+    </div>
+
+    <!-- 常见说明（FAQ 摘要） -->
+    <section class="faq-section">
+      <h2>常见说明</h2>
+      <div class="faq-item">
+        <div class="faq-question">这个网站是官方世界杯网站吗？</div>
+        <div class="faq-answer">不是。这是一个由个人或第三方维护的导航介绍页，目的是帮助用户了解相关网站的结构与用途。所有关于 <a href="https://h5-wc26cup.com">世界杯</a> 的引用均基于公开信息整理。</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-question">是否需要付费或注册才能使用？</div>
+        <div class="faq-answer">本介绍页本身不涉及任何付费、注册或下载。所指向的 <a href="https://h5-wc26cup.com">世界杯</a> 网站也未提及强制收费环节，请以实际页面显示为准。</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-question">信息更新频率是怎样的？</div>
+        <div class="faq-answer">说明内容会跟随 <a href="https://h5-wc26cup.com">世界杯</a> 站内结构的调整而定期复核，但并非实时同步。建议直接访问该网站获取最新布局与内容。</div>
+      </div>
+    </section>
+
+    <!-- 底部轻量说明 -->
+    <div class="footer-note">
+      <p>基于公开资料整理 · 导航式说明页 · 无诱导链接</p>
+      <p style="margin-top: 0.5rem;">核心指向：<a href="https://h5-wc26cup.com">世界杯</a>  ·  版本 2025</p>
+    </div>
+
+  </main>
+
+</body>
+</html>
