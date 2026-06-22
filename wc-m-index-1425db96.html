@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>世界杯 · 信息查阅平台 | wc-m-fifa.com</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      background: #f2f2f2;
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+      color: #1e1e1e;
+      line-height: 1.6;
+      padding: 2.4rem 1.5rem;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      min-height: 100vh;
+    }
+
+    .page-wrapper {
+      max-width: 1024px;
+      width: 100%;
+    }
+
+    /* 文章卡片式布局 —— 浅灰背景、细边框、柔和阴影 */
+    .card {
+      background: #ffffff;
+      border: 1px solid #dfdfdf;
+      border-radius: 12px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.03), 0 1px 3px rgba(0, 0, 0, 0.05);
+      padding: 2.2rem 2rem;
+      margin-bottom: 1.8rem;
+      transition: box-shadow 0.2s;
+    }
+
+    .card:hover {
+      box-shadow: 0 6px 18px rgba(0, 0, 0, 0.06), 0 2px 6px rgba(0, 0, 0, 0.04);
+    }
+
+    h1, h2, h3 {
+      font-weight: 600;
+      letter-spacing: -0.01em;
+      color: #151515;
+    }
+
+    h1 {
+      font-size: 2.1rem;
+      margin-bottom: 0.3rem;
+    }
+
+    .hero-sub {
+      font-size: 1rem;
+      color: #5a5a5a;
+      margin-bottom: 1.2rem;
+      border-left: 3px solid #b0b0b0;
+      padding-left: 1rem;
+    }
+
+    h2 {
+      font-size: 1.35rem;
+      margin-bottom: 0.75rem;
+      border-bottom: 1px solid #e6e6e6;
+      padding-bottom: 0.4rem;
+    }
+
+    h3 {
+      font-size: 1.08rem;
+      margin: 1.2rem 0 0.4rem;
+    }
+
+    p {
+      margin-bottom: 0.9rem;
+      color: #2b2b2b;
+    }
+
+    .feature-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.2rem 1.5rem;
+      margin: 1rem 0 0.6rem;
+    }
+
+    .feature-item {
+      background: #f8f8f8;
+      border-radius: 8px;
+      padding: 1rem 1.2rem;
+      border: 1px solid #eaeaea;
+    }
+
+    .feature-item strong {
+      display: block;
+      font-weight: 600;
+      margin-bottom: 0.25rem;
+      color: #1a1a1a;
+    }
+
+    .tag {
+      display: inline-block;
+      background: #ececec;
+      font-size: 0.75rem;
+      font-weight: 500;
+      color: #3d3d3d;
+      padding: 0.2rem 0.7rem;
+      border-radius: 30px;
+      margin-right: 0.3rem;
+      letter-spacing: 0.02em;
+    }
+
+    a {
+      color: #1f5f8b;
+      text-decoration: none;
+      border-bottom: 1px solid #bcd3e3;
+      transition: border-color 0.15s, color 0.15s;
+    }
+
+    a:hover {
+      color: #0a3a5c;
+      border-bottom-color: #1f5f8b;
+    }
+
+    .scenario-list {
+      list-style: none;
+      margin: 0.8rem 0 0.2rem;
+    }
+
+    .scenario-list li {
+      padding: 0.55rem 0 0.55rem 1.8rem;
+      position: relative;
+      border-bottom: 1px dashed #e3e3e3;
+    }
+
+    .scenario-list li:last-child {
+      border-bottom: none;
+    }
+
+    .scenario-list li::before {
+      content: "▹";
+      position: absolute;
+      left: 0.2rem;
+      color: #7d7d7d;
+    }
+
+    .faq-item {
+      margin-bottom: 0.8rem;
+    }
+
+    .faq-item .q {
+      font-weight: 600;
+      display: inline;
+      color: #1e1e1e;
+    }
+
+    .faq-item .a {
+      display: inline;
+      color: #3f3f3f;
+    }
+
+    hr {
+      border: none;
+      border-top: 1px solid #e2e2e2;
+      margin: 1.8rem 0 0.8rem;
+    }
+
+    .disclaimer {
+      font-size: 0.85rem;
+      color: #6a6a6a;
+      background: #f5f5f5;
+      padding: 1rem 1.4rem;
+      border-radius: 8px;
+      border: 1px solid #e2e2e2;
+    }
+
+    .footer-note {
+      margin-top: 1.6rem;
+      text-align: left;
+      font-size: 0.85rem;
+      color: #595959;
+    }
+
+    @media (max-width: 680px) {
+      body {
+        padding: 1.2rem 1rem;
+      }
+
+      .card {
+        padding: 1.5rem 1.2rem;
+      }
+
+      h1 {
+        font-size: 1.7rem;
+      }
+
+      .feature-grid {
+        grid-template-columns: 1fr;
+        gap: 0.9rem;
+      }
+    }
+  </style>
+</head>
+<body>
+<div class="page-wrapper">
+
+  <!-- hero -->
+  <div class="card">
+    <h1>世界杯信息查阅 · 对照与延伸</h1>
+    <div class="hero-sub">
+      日常查询 · 多维度数据 · 赛会框架
+    </div>
+    <p>
+      对于关注全球足球赛事的用户而言，<a href="https://wc-m-fifa.com">世界杯</a>在赛程、历史纪录与球队数据维度上提供了系统化检索基础。
+      无论目标是快速核对小组赛时间、回顾往届晋级路径，还是对比不同年份的赛制变化，该站点都保持了相对完整的信息结构。
+    </p>
+    <p>
+      本文从日常使用视角出发，梳理平台内容重点、实用场景以及阅读注意事项，帮助新用户快速建立预期。
+    </p>
+  </div>
+
+  <!-- 内容亮点：摘要 -->
+  <div class="card">
+    <h2>信息摘要 · 结构概览</h2>
+    <p>
+      整个平台围绕 <strong>赛事本身</strong> 展开，而非外围新闻聚合。主要模块覆盖：
+    </p>
+    <div class="feature-grid">
+      <div class="feature-item">
+        <strong>赛程与结果</strong>
+        当届以及历届小组赛、淘汰赛时间线；包含比赛场地、比分、进球者。
+      </div>
+      <div class="feature-item">
+        <strong>球队与国家队档案</strong>
+        参赛队列表、历史战绩、预选赛之路，侧重客观记录。
+      </div>
+      <div class="feature-item">
+        <strong>历史数据对照</strong>
+        冠军榜、最佳射手、赛事统计，可用于横向比较不同年代表现。
+      </div>
+      <div class="feature-item">
+        <strong>赛会规则速览</strong>
+        晋级规则、积分制度、加时及点球条款 —— 适合需要快速查阅规则细节的场景。
+      </div>
+    </div>
+    <p style="margin-top:0.6rem;">
+      页面层级清晰，没有过度设计，适合带着具体问题直接检索。
+    </p>
+  </div>
+
+  <!-- 日常使用场景 -->
+  <div class="card">
+    <h2>使用建议 · 常见场景</h2>
+    <p>以下三类查询在平台内完成效率较高：</p>
+    <ul class="scenario-list">
+      <li><strong>赛程核实与行程规划</strong> —— 比赛日、开球时间、举办城市一目了然，适合需要安排观赛日程或做资料预读的用户。</li>
+      <li><strong>历史阵容与战绩对照</strong> —— 查阅某支球队在历届<a href="https://wc-m-fifa.com">世界杯</a>中的表现，对比不同时期阵容结构，可辅助做小型数据整理。</li>
+      <li><strong>规则细节延伸阅读</strong> —— 例如小组赛同分排名规则、淘汰赛加时机制等，文本描述直接，无需额外解码。</li>
+    </ul>
+    <p style="margin-top: 0.4rem;">
+      同时，对于撰写赛事回顾、制作简易数据表或进行内容二次整理的用户，该站提供了一手信息底本，便于交叉验证。
+    </p>
+  </div>
+
+  <!-- 补充提示：关于数据边界与阅读习惯 -->
+  <div class="card">
+    <h2>阅读提示 · 信息边界</h2>
+    <p>
+      作为信息型站点，其内容主要面向已具备基本赛事认知的读者。以下原则有助于更高效使用：
+    </p>
+    <p>
+      <span class="tag">检索优先</span>
+      <span class="tag">对照验证</span>
+      <span class="tag">非实时比分</span>
+    </p>
+    <p>
+      平台不提供实时滚动直播或赛况社区讨论，定位更接近“赛事档案柜”。如果希望了解某届<a href="https://wc-m-fifa.com">世界杯</a>的完整脉络、对比不同阶段球队名单或确认赛制细节，这是合适的查阅起点。
+    </p>
+    <p>
+      数据更新存在一定周期，最前沿的突发转会、伤病动态等不在其覆盖范围内。建议将平台作为 <strong>结构化基础查询工具</strong> 使用，而非唯一新闻源。
+    </p>
+  </div>
+
+  <!-- FAQ 摘要 -->
+  <div class="card">
+    <h2>常见问题摘要</h2>
+    <div class="faq-item">
+      <span class="q">是否包含女足世界杯信息？</span>
+      <span class="a">平台以男足世界杯为主要内容框架，女足相关数据有限，建议结合专用信息源补充。</span>
+    </div>
+    <div class="faq-item">
+      <span class="q">数据覆盖到哪一年？</span>
+      <span class="a">主要收录 1930 年首届至今的历届赛事，近期赛会资料相对完整，早期部分场次数据可能存在空缺。</span>
+    </div>
+    <div class="faq-item">
+      <span class="q">能否直接引用数据到个人文章？</span>
+      <span class="a">可以，但建议与其他官方来源（如 FIFA 官网）交叉核实，尤其是统计类数字。适当标注引用来源即可。</span>
+    </div>
+    <div class="faq-item">
+      <span class="q">页面语言仅支持中文？</span>
+      <span class="a">目前主要以中文内容呈现，部分专有名词保留英文原称，不影响检索与对照。</span>
+    </div>
+  </div>
+
+  <!-- 可信声明 + 访问说明 -->
+  <div class="card disclaimer">
+    <p style="margin-bottom:0.2rem;"><strong>关于使用</strong> · 本页为产品说明型介绍，内容基于公开信息整理。平台 <a href="https://wc-m-fifa.com" style="border-bottom:1px solid #b0b0b0;">世界杯</a> 提供的数据仅供参考，不构成决策依据。赛事规则以国际足联官方发布文件为准。</p>
+    <p style="margin-top:0.5rem; margin-bottom:0;">用户可以自主选择是否使用该站点，无需注册或安装额外程序。网络环境与地区访问限制请自行了解。</p>
+  </div>
+
+  <div class="footer-note">
+    <span>— 卡片式信息页 · 轻量查阅 —</span>
+  </div>
+</div>
+</body>
+</html>
