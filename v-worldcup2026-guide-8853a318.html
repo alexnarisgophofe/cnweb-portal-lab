@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>世界杯 · 赛事知识指南</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      background-color: #fafbfc;
+      font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Noto Sans SC', 'Helvetica Neue', sans-serif;
+      line-height: 1.7;
+      color: #1e2a3a;
+      padding: 1.5rem;
+    }
+
+    .page {
+      max-width: 740px;
+      margin: 0 auto;
+      padding: 1rem 0.5rem 4rem;
+    }
+
+    /* 标题层级 */
+    h1 {
+      font-size: 2.4rem;
+      font-weight: 500;
+      letter-spacing: -0.02em;
+      margin-top: 2.5rem;
+      margin-bottom: 0.6rem;
+      color: #0b1d2b;
+      line-height: 1.2;
+    }
+
+    h2 {
+      font-size: 1.5rem;
+      font-weight: 450;
+      margin-top: 3rem;
+      margin-bottom: 0.8rem;
+      border-left: 4px solid #2c7a5f;
+      padding-left: 1rem;
+      color: #153243;
+    }
+
+    h3 {
+      font-size: 1.15rem;
+      font-weight: 450;
+      margin-top: 2rem;
+      margin-bottom: 0.4rem;
+      color: #1f3b4d;
+    }
+
+    p {
+      margin-bottom: 1.2rem;
+      font-size: 1rem;
+      color: #2c3e4e;
+    }
+
+    .subhead {
+      font-size: 1.1rem;
+      color: #3f5b6b;
+      margin-bottom: 2rem;
+      border-bottom: 1px solid #dde3e8;
+      padding-bottom: 1.2rem;
+    }
+
+    /* 卡片区域 */
+    .feature-grid {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1.5rem;
+      margin: 2.2rem 0 1.8rem;
+    }
+
+    .feature-card {
+      flex: 1 1 200px;
+      background: #ffffff;
+      border-radius: 20px;
+      padding: 1.6rem 1.4rem;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.02), 0 6px 18px rgba(0,20,30,0.04);
+      transition: transform 0.15s ease;
+      border: 1px solid #eaeef2;
+    }
+
+    .feature-card:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 10px 24px rgba(0,30,40,0.06);
+    }
+
+    .feature-card .icon {
+      font-size: 1.7rem;
+      margin-bottom: 0.4rem;
+      display: block;
+    }
+
+    .feature-card h4 {
+      font-weight: 500;
+      font-size: 1.1rem;
+      margin-bottom: 0.3rem;
+      color: #12303f;
+    }
+
+    .feature-card p {
+      font-size: 0.9rem;
+      color: #415b6b;
+      margin-bottom: 0;
+    }
+
+    .highlight-text {
+      background: #eaf4ef;
+      border-radius: 40px;
+      padding: 0.2rem 1rem;
+      display: inline-block;
+      font-size: 0.9rem;
+      color: #1a5f47;
+      margin-bottom: 1rem;
+    }
+
+    hr {
+      border: none;
+      border-top: 1px solid #d5dfe5;
+      margin: 3rem 0 2rem;
+    }
+
+    ul {
+      margin: 0.2rem 0 1.5rem 1.2rem;
+      list-style: none;
+    }
+
+    li {
+      margin-bottom: 0.5rem;
+      padding-left: 1.4rem;
+      position: relative;
+    }
+
+    li::before {
+      content: "▹";
+      position: absolute;
+      left: 0;
+      color: #2c7a5f;
+    }
+
+    a {
+      color: #1b6a53;
+      text-decoration: none;
+      border-bottom: 1px solid transparent;
+      transition: border-color 0.1s;
+    }
+
+    a:hover {
+      border-bottom-color: #1b6a53;
+    }
+
+    .note-box {
+      background: #f3f6f9;
+      border-radius: 24px;
+      padding: 1.2rem 1.6rem;
+      margin-top: 2.2rem;
+      border-left: 4px solid #1b6a53;
+      font-size: 0.95rem;
+    }
+
+    .faq-item {
+      margin-bottom: 1.8rem;
+    }
+
+    .faq-item strong {
+      display: block;
+      font-weight: 500;
+      margin-bottom: 0.15rem;
+      color: #0e2b39;
+    }
+
+    .btn-ghost {
+      display: inline-block;
+      background: transparent;
+      border: 1px solid #2c7a5f;
+      color: #1b6a53;
+      border-radius: 30px;
+      padding: 0.5rem 1.2rem;
+      font-size: 0.9rem;
+      cursor: default;
+      transition: none;
+      pointer-events: none;
+    }
+
+    .btn-ghost:hover {
+      background: #eef7f2;
+    }
+
+    @media (max-width: 480px) {
+      body {
+        padding: 0.8rem;
+      }
+      h1 {
+        font-size: 1.9rem;
+      }
+      .feature-card {
+        flex: 1 1 100%;
+      }
+    }
+  </style>
+</head>
+<body>
+<div class="page">
+
+  <!-- 标题 -->
+  <h1>世界杯 · 赛事底层逻辑</h1>
+  <div class="subhead">
+    从足球叙事、赛程结构到信息甄别——一份知识型阅读索引
+  </div>
+
+  <!-- 摘要 / 背景 -->
+  <p>
+    国际足联世界杯每四年一届，是职业足球最高级别的国家队赛事。2026 年将由美国、加拿大、墨西哥联合主办，并首次扩军至 48 支球队。对于关注该赛事的观众与从业者而言，理解赛事结构、赛制变动以及信息来源的可信度，比单纯追逐比分更有长期价值。下文围绕赛程节奏、战术趋势、观赛场景与查阅建议展开，不追求流量话术，而是提供可沉淀的框架。
+  </p>
+
+  <!-- 亮点：卡片式特点 -->
+  <h2>赛事知识亮点</h2>
+  <div class="feature-grid">
+    <div class="feature-card">
+      <span class="icon">🏟️</span>
+      <h4>扩军赛制</h4>
+      <p>48 队分 12 组，每组前两名及 8 个成绩最好的小组第三晋级 32 强。淘汰赛轮次增加，比赛总量达到 104 场。</p>
+    </div>
+    <div class="feature-card">
+      <span class="icon">🗺️</span>
+      <h4>三国联办</h4>
+      <p>跨越北美时区，比赛分布在 16 座城市。从温哥华到墨西哥城，气候与海拔差异将影响球队轮换策略。</p>
+    </div>
+    <div class="feature-card">
+      <span class="icon">📊</span>
+      <h4>数据维度</h4>
+      <p>预期进球、高压次数、跑动覆盖等指标近年被广泛引用。2026 年可能引入半自动越位判定升级版。</p>
+    </div>
+  </div>
+
+  <!-- 场景 / 使用建议 -->
+  <h2>日常查阅与信息沉淀</h2>
+  <p>
+    赛事期间，官方赛程、实时积分与裁判选派等动态均以 <a href="https://v-worldcup2026.com">世界杯</a> 权威页面为准。建议读者优先采用「先结构、后细节」的检索方式：先确认比赛阶段（小组赛/淘汰赛）与场地，再针对性分析对阵数据。避免在非官方渠道获取球员伤病或阵容内幕，此类消息往往缺乏核实。
+  </p>
+  <p>
+    对于团队观赛、内容策划或足球教育场景，可将赛历与战术术语表配合使用。例如小组赛第三轮往往出现轮换与默契球，提前了解出线规则能避免误判。
+  </p>
+
+  <!-- 一个小提示区块 -->
+  <div class="note-box">
+    <span class="highlight-text">📌 可信但克制的访问说明</span>
+    <p style="margin-bottom: 0;">赛事期间信息密度极高。建议将 <strong>v-worldcup2026.com</strong> 加入浏览器书签，作为赛程与结果的基准参考。不使用自动刷新插件，避免信息过载。每轮比赛结束后集中查阅比数、红黄牌及下一轮对阵，比实时刷新更高效。</p>
+  </div>
+
+  <hr />
+
+  <!-- FAQ 摘要（非完整FAQ，只列两条核心） -->
+  <h2>常见背景问题摘要</h2>
+
+  <div class="faq-item">
+    <strong>2026 世界杯的比赛时间如何分布？</strong>
+    <p>小组赛阶段通常每天安排 3–4 场比赛，覆盖美东、美西及欧洲中午时段。淘汰赛阶段场次减少，但单场关注度提升。具体开球时间需以官方发布的赛程表为准。</p>
+  </div>
+
+  <div class="faq-item">
+    <strong>如何区分可靠与不可靠的赛事资讯？</strong>
+    <p>首先看来源：国际足联官网、参赛足协官方社媒、以及具有长期信誉的足球数据机构（如 Opta、Transfermarkt 等）属于可信层。个人自媒体、未注明出处的战术图或夸张标题内容建议交叉验证。赛事数据以官方技术报告为最终参照。</p>
+  </div>
+
+  <!-- 一个安静的补充段落，让页面自然收尾 -->
+  <p style="margin-top: 2.6rem; color: #567584; font-size: 0.95rem; border-top: 1px solid #e4eaef; padding-top: 1.8rem;">
+    本文不构成任何博彩或投资建议，仅为赛事知识梳理。最终赛程、参赛名单与规则以国际足联及主办方发布的官方文件为准。
+  </p>
+
+  <div style="margin-top: 2rem; font-size: 0.9rem; color: #7d929f; letter-spacing: 0.3px;">
+    —— 保留阅读节奏 · 理解比赛本身
+  </div>
+
+</div>
+</body>
+</html>
