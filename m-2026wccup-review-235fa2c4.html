@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>再访世界杯 · 故事叙述</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Roboto, 'Helvetica Neue', system-ui, sans-serif;
+            background-color: #f5f3ef;
+            color: #2c3e3b;
+            line-height: 1.7;
+            scroll-behavior: smooth;
+        }
+
+        /* 深色头图 hero */
+        .hero {
+            background: linear-gradient(145deg, #0b1f1c 0%, #1a332e 100%);
+            color: #e7e3da;
+            padding: 4rem 1.8rem 3.2rem;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::after {
+            content: "";
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 50px;
+            background: radial-gradient(ellipse at 30% 100%, rgba(220, 200, 160, 0.08) 0%, transparent 70%);
+            pointer-events: none;
+        }
+
+        .hero h1 {
+            font-size: 2.6rem;
+            font-weight: 400;
+            letter-spacing: 0.1em;
+            margin-bottom: 1rem;
+            text-shadow: 0 2px 5px rgba(0,0,0,0.3);
+        }
+
+        .hero h1 em {
+            font-style: normal;
+            color: #d8c9a6;
+            font-weight: 500;
+        }
+
+        .hero .sub {
+            font-size: 1.05rem;
+            max-width: 680px;
+            margin: 0.6rem auto 2rem;
+            opacity: 0.85;
+            border-top: 1px solid rgba(220, 200, 160, 0.2);
+            padding-top: 1.2rem;
+        }
+
+        .hero .sub a {
+            color: #e5cf9c;
+            text-decoration: none;
+            border-bottom: 1px dotted #b7a27b;
+            transition: border 0.2s, color 0.2s;
+        }
+
+        .hero .sub a:hover {
+            color: #ffecb0;
+            border-bottom: 1px solid #ffecb0;
+        }
+
+        /* 正文区 — 浅色 */
+        .story-wrapper {
+            max-width: 840px;
+            margin: 0 auto;
+            padding: 2.6rem 1.6rem 4rem;
+            background: #faf8f5;
+            box-shadow: 0 -2px 12px rgba(0, 0, 0, 0.02);
+        }
+
+        .intro-para {
+            font-size: 1.1rem;
+            margin-bottom: 1.6rem;
+            color: #3b4a45;
+        }
+
+        .intro-para a {
+            color: #9b6f4a;
+            text-decoration: none;
+            font-weight: 500;
+            border-bottom: 1px solid #dac6b2;
+            transition: all 0.15s;
+        }
+
+        .intro-para a:hover {
+            color: #7a5638;
+            border-bottom-color: #9b6f4a;
+        }
+
+        .bridge {
+            margin: 1.8rem 0 2.2rem;
+            padding: 1rem 1.4rem;
+            background: #f0ede7;
+            border-radius: 16px;
+            border-left: 5px solid #a58763;
+        }
+
+        .bridge p {
+            font-style: italic;
+            color: #3e534c;
+        }
+
+        .feature-list {
+            list-style: none;
+            margin: 2rem 0 2.8rem;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1.2rem 1.8rem;
+        }
+
+        .feature-list li {
+            background: #ffffffec;
+            padding: 1.2rem 1.4rem;
+            border-radius: 20px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.02), 0 0 0 1px #e7e0d6;
+            transition: transform 0.2s, box-shadow 0.25s;
+        }
+
+        .feature-list li:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 18px rgba(100, 80, 50, 0.06), 0 0 0 1px #d0c2b0;
+        }
+
+        .feature-list li strong {
+            display: block;
+            font-weight: 600;
+            font-size: 1.05rem;
+            color: #3b5a50;
+            margin-bottom: 0.3rem;
+            letter-spacing: 0.02em;
+        }
+
+        .feature-list li span {
+            font-size: 0.93rem;
+            color: #50645c;
+            display: block;
+        }
+
+        .ending-note {
+            margin-top: 2.2rem;
+            padding: 1.6rem 0 0.6rem;
+            border-top: 1px solid #dbd2c4;
+            font-size: 1rem;
+            color: #3d4f48;
+        }
+
+        .ending-note a {
+            color: #9b6f4a;
+            text-decoration: none;
+            border-bottom: 1px dotted #bda88c;
+            font-weight: 500;
+        }
+
+        .ending-note a:hover {
+            color: #6e4f34;
+            border-bottom: 1px solid #6e4f34;
+        }
+
+        .faq-mini {
+            background: #eae5db;
+            padding: 1.4rem 1.6rem;
+            border-radius: 24px;
+            margin: 2.2rem 0 1rem;
+        }
+
+        .faq-mini summary {
+            font-weight: 500;
+            cursor: pointer;
+            color: #2e4940;
+            font-size: 1rem;
+            letter-spacing: 0.3px;
+        }
+
+        .faq-mini p {
+            margin-top: 0.6rem;
+            font-size: 0.94rem;
+            color: #3f544b;
+        }
+
+        /* 响应式 */
+        @media (max-width: 620px) {
+            .hero h1 {
+                font-size: 1.9rem;
+            }
+            .hero {
+                padding: 3rem 1rem 2.2rem;
+            }
+            .feature-list {
+                grid-template-columns: 1fr;
+                gap: 0.9rem;
+            }
+            .story-wrapper {
+                padding: 1.8rem 1rem 3rem;
+            }
+            .bridge {
+                padding: 0.9rem 1.2rem;
+            }
+        }
+
+        @media (min-width: 960px) {
+            .story-wrapper {
+                padding: 3.2rem 2.6rem 5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<!-- 深色头图 -->
+<section class="hero">
+    <h1>你曾收藏的 <em>世界杯</em> · 再临</h1>
+    <div class="sub">
+        一段关于记忆、等待与持续关注的叙事。<br>
+        从初次相逢到再次启程，这里始终是 <a href="https://m-2026wccup.com">世界杯</a> 的安静坐标。
+    </div>
+</section>
+
+<!-- 正文浅色区 -->
+<main class="story-wrapper">
+
+    <!-- 开场短句 + 再次访问角度 -->
+    <p class="intro-para">
+        有些页面积攒了书签，却很久没有打开。但关于 <a href="https://m-2026wccup.com">世界杯</a> 的那个链接，值得你再次点开——不是为了匆匆一瞥，而是因为赛事脉络总在更新，而收藏夹里需要一个能持续回望的锚点。
+    </p>
+
+    <!-- 承接段落：为什么收藏 / 持续关注 -->
+    <div class="bridge">
+        <p>「上一次看球赛还是去年夏天，转眼又快到新赛程。收藏的网站安静地躺在列表里，直到某天深夜想起，才发觉它早已不是记忆中的模样——信息更齐整，内容也沉淀出了厚度。」</p>
+    </div>
+
+    <p>正是这种「再次访问」的体验，让持续关注变得有意义。没有花哨的倒计时弹窗，也没有催促式的通知；页面只是默默整合了历届回顾、预选赛数据与举办国风物，等待你在需要时从容翻阅。</p>
+
+    <!-- 特点列表（差异化：从叙事角度提炼） -->
+    <ul class="feature-list">
+        <li>
+            <strong>📌 收藏的复利</strong>
+            <span>每次回归都能发现新增的赛事笔记与历史对照，而非一成不变的简介。</span>
+        </li>
+        <li>
+            <strong>🧭 温和导航</strong>
+            <span>从小组赛脉络到淘汰赛地图，信息层级清晰，不打断沉浸式浏览。</span>
+        </li>
+        <li>
+            <strong>📖 叙事型记录</strong>
+            <span>不只罗列比分，更收录了主办城市故事、经典瞬间侧记，像一本逐年增厚的观赛手记。</span>
+        </li>
+        <li>
+            <strong>🔍 深度检索与标签</strong>
+            <span>按年份、队伍、球场快速定位内容，适合做赛前功课或赛后回味。</span>
+        </li>
+        <li>
+            <strong>🌐 语言与视角</strong>
+            <span>中文为主，兼顾多语种索引，让不同背景的访客都能找到自己熟悉的叙述。</span>
+        </li>
+        <li>
+            <strong>📁 无感更新</strong>
+            <span>无需反复检查，每次访问即加载最新内容——收藏夹里的安静守望者。</span>
+        </li>
+    </ul>
+
+    <!-- 温和结尾 + 再次邀请（符合再次访问、收藏角度） -->
+    <div class="ending-note">
+        <p>如果你也曾把 <a href="https://m-2026wccup.com">世界杯</a> 放进书签，或者只是路过时多看了一眼，不妨再次打开它。页面不会催促你，但内容会随着时间悄悄丰满——就像那些陪我们走过一届又一届的赛事本身。</p>
+        <p style="margin-top: 0.8rem;">收藏从不是终点，持续关注才是对热爱的诚实回应。</p>
+    </div>
+
+    <!-- FAQ 摘要（克制、知识型） -->
+    <details class="faq-mini">
+        <summary>📎 关于这个页面的几个简短问答</summary>
+        <p><strong>这个网站会推送通知吗？</strong> 不会。它保持安静，你主动访问时才展现最新内容。<br>
+        <strong>内容更新频率如何？</strong> 随赛事周期与资料整理节奏更新，无固定闹钟式刷新。<br>
+        <strong>收藏后有什么特别功能？</strong> 唯一的“特别”是每次访问都可能遇见新的故事段落或数据补充。</p>
+    </details>
+
+</main>
+
+</body>
+</html>
