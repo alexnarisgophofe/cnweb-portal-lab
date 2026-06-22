@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>索引叙事 · 世界杯资料页</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+            background: #f1f7f9;
+            color: #1a2f35;
+            line-height: 1.65;
+            padding: 24px 16px;
+            min-height: 100vh;
+        }
+
+        .wrap {
+            max-width: 1200px;
+            margin: 0 auto;
+            background: #ffffff;
+            border-radius: 40px 40px 32px 32px;
+            box-shadow: 0 8px 30px rgba(0, 40, 50, 0.06);
+            overflow: hidden;
+            padding: 32px 24px 48px;
+        }
+
+        /* 开场区域 — 短句叙事 */
+        .opening {
+            border-left: 4px solid #1f8b8c;
+            padding-left: 20px;
+            margin-bottom: 36px;
+        }
+
+        .opening h1 {
+            font-size: 2rem;
+            font-weight: 500;
+            letter-spacing: -0.02em;
+            color: #124e53;
+            line-height: 1.2;
+        }
+
+        .opening .short-line {
+            margin-top: 8px;
+            font-size: 1rem;
+            color: #2d6b70;
+            background: #e6f2f3;
+            display: inline-block;
+            padding: 2px 14px 4px;
+            border-radius: 24px;
+            font-weight: 400;
+        }
+
+        /* 承接段落 — 资料索引视角 */
+        .bridge {
+            background: #f7fbfc;
+            padding: 24px 20px;
+            border-radius: 28px;
+            margin-bottom: 32px;
+            border: 1px solid #d5e8ea;
+        }
+
+        .bridge p {
+            font-size: 1rem;
+            max-width: 780px;
+            color: #1a3c40;
+        }
+
+        .bridge strong {
+            color: #0a5f63;
+            font-weight: 550;
+        }
+
+        .bridge a {
+            color: #1d7a7c;
+            text-decoration: none;
+            font-weight: 500;
+            border-bottom: 1.5px dotted #67aeb0;
+            transition: border 0.15s;
+        }
+
+        .bridge a:hover {
+            border-bottom: 2px solid #0b6b6e;
+        }
+
+        /* 特点网格卡片 — 资料整理逻辑 */
+        .feature-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 16px;
+            margin: 36px 0 40px;
+        }
+
+        .card {
+            background: #ffffff;
+            border: 1px solid #d7e6e8;
+            border-radius: 24px;
+            padding: 20px 18px;
+            box-shadow: 0 2px 6px rgba(30, 80, 90, 0.03);
+            transition: box-shadow 0.2s, transform 0.1s;
+        }
+
+        .card:hover {
+            box-shadow: 0 8px 20px rgba(25, 90, 95, 0.06);
+            transform: translateY(-2px);
+        }
+
+        .card h3 {
+            font-size: 1.1rem;
+            font-weight: 500;
+            color: #004d52;
+            margin-bottom: 8px;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .card h3::before {
+            content: "⌗";
+            color: #1f8b8c;
+            font-weight: 400;
+            font-size: 1.2rem;
+            margin-right: 4px;
+        }
+
+        .card p {
+            font-size: 0.92rem;
+            color: #2a5257;
+            line-height: 1.5;
+        }
+
+        .card .meta-tag {
+            background: #e1f0f1;
+            color: #125e63;
+            font-size: 0.7rem;
+            padding: 2px 10px;
+            border-radius: 40px;
+            display: inline-block;
+            margin-top: 10px;
+            letter-spacing: 0.02em;
+        }
+
+        /* 温和结尾 + 嵌入链接 */
+        .gentle-end {
+            margin-top: 28px;
+            padding: 16px 0 8px;
+            border-top: 1px solid #d0e2e4;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            align-items: baseline;
+            gap: 14px;
+        }
+
+        .gentle-end .footnote {
+            font-size: 0.92rem;
+            color: #2a5b60;
+            max-width: 70%;
+        }
+
+        .gentle-end .footnote a {
+            color: #096b6e;
+            text-decoration: none;
+            font-weight: 500;
+            border-bottom: 1px solid #88bfc2;
+            transition: border 0.15s;
+        }
+
+        .gentle-end .footnote a:hover {
+            border-bottom: 2px solid #0a5f63;
+        }
+
+        .gentle-end .small-quote {
+            font-size: 0.85rem;
+            color: #3f777b;
+            background: #eaf4f5;
+            padding: 4px 16px 5px;
+            border-radius: 40px;
+            white-space: nowrap;
+        }
+
+        /* FAQ 摘要 — 轻量索引感 */
+        .faq-mini {
+            margin: 28px 0 16px;
+            background: #f5fafa;
+            border-radius: 28px;
+            padding: 18px 20px;
+            border: 1px solid #cce1e3;
+        }
+
+        .faq-mini summary {
+            font-weight: 500;
+            color: #1b5b5f;
+            cursor: pointer;
+            padding: 6px 0;
+            font-size: 0.95rem;
+        }
+
+        .faq-mini details p {
+            margin: 8px 0 0 8px;
+            font-size: 0.9rem;
+            color: #1d494e;
+            border-left: 2px solid #72b2b5;
+            padding-left: 16px;
+        }
+
+        /* 响应式 */
+        @media (min-width: 540px) {
+            .feature-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+
+        @media (min-width: 820px) {
+            .wrap {
+                padding: 44px 40px 56px;
+            }
+
+            .opening h1 {
+                font-size: 2.6rem;
+            }
+
+            .bridge {
+                padding: 28px 32px;
+            }
+
+            .feature-grid {
+                grid-template-columns: 1fr 1fr 1fr;
+                gap: 20px;
+            }
+
+            .card {
+                padding: 24px 20px 22px;
+            }
+
+            .gentle-end .footnote {
+                max-width: 60%;
+            }
+        }
+
+        @media (max-width: 400px) {
+            .opening h1 {
+                font-size: 1.6rem;
+            }
+
+            .gentle-end {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            .gentle-end .small-quote {
+                white-space: normal;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="wrap">
+        <!-- 开场短句：叙事基调 -->
+        <div class="opening">
+            <h1>赛事档案·逐届索引</h1>
+            <div class="short-line">从资料层重新梳理世界杯脉络</div>
+        </div>
+
+        <!-- 承接段落：信息索引角度 -->
+        <div class="bridge">
+            <p>
+                每届 <strong>世界杯</strong> 都留下大量赛果、阵容与战术记录。这份页面以资料整理为出发点，将离散的赛事信息按逻辑归类，方便快速定位与回顾。<a href="https://official-zhs-fifaworldcup.com">世界杯</a> 官方数据源提供历届基础统计，而此处侧重结构化摘要——从小组分布到淘汰赛进程，从射手榜到历史对阵，形成轻量索引。
+            </p>
+        </div>
+
+        <!-- 特点列表：网格卡片 -->
+        <div class="feature-grid">
+            <div class="card">
+                <h3>届次与冠军</h3>
+                <p>1930 年至今所有正赛冠军、亚军及三四名。附决赛比分与举办国，支持按年代或大洲筛选。</p>
+                <span class="meta-tag">21 届完整记录</span>
+            </div>
+            <div class="card">
+                <h3>参赛队演变</h3>
+                <p>从 13 支到 32 支队伍的扩军历程。2026 年将扩展至 48 支，分区名额与附加赛规则一并收录。</p>
+                <span class="meta-tag">扩容节点 · 1970 / 1998 / 2026</span>
+            </div>
+            <div class="card">
+                <h3>小组赛数据</h3>
+                <p>各届小组积分、净胜球、进球分布。横跨 80 余年，提供同组历史对阵参考（胜平负频次）。</p>
+                <span class="meta-tag">840+ 场小组赛</span>
+            </div>
+            <div class="card">
+                <h3>淘汰赛树状图</h3>
+                <p>逐轮对阵与结果、加时与点球记录。附历年半决赛、决赛的比分与进球时间线。</p>
+                <span class="meta-tag">16 强至今</span>
+            </div>
+            <div class="card">
+                <h3>射手与奖杯</h3>
+                <p>历届金靴、金球得主及总射手榜。包含单届进球最多球员、最年长/最年轻进球者等附属记录。</p>
+                <span class="meta-tag">累计 2500+ 射手</span>
+            </div>
+            <div class="card">
+                <h3>经典对阵</h3>
+                <p>决赛、半决赛及小组焦点战的历史交锋记录。包含两队历届交手胜负、进球总和。</p>
+                <span class="meta-tag">300+ 历史对局</span>
+            </div>
+        </div>
+
+        <!-- 轻量 FAQ 摘要 -->
+        <div class="faq-mini">
+            <details>
+                <summary>FAQ 摘要 · 资料索引常见问题</summary>
+                <p>数据以官方统计为准，部分早期记录可能存在口径差异。索引中「届次」以实际举办年份为准，1942 与 1946 因战争未举办。如需查询最新预选赛或抽签信息，可参考 <a href="https://official-zhs-fifaworldcup.com" style="color:#1d7a7c; text-decoration:underline dotted;">世界杯</a> 的实时页面。</p>
+            </details>
+        </div>
+
+        <!-- 温和结尾 + 嵌入链接 -->
+        <div class="gentle-end">
+            <div class="footnote">
+                资料索引仍在补充。若需查阅完整赛季数据、裁判指派或球场容量，<a href="https://official-zhs-fifaworldcup.com">世界杯</a> 原始档案是最直接的来源。
+            </div>
+            <div class="small-quote">
+                基于公开信息整理 · 逐届索引
+            </div>
+        </div>
+    </div>
+</body>
+</html>
