@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>知识库 · 世界杯主题门户</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: system-ui, -apple-system, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+      background-color: #f5f9fc;
+      color: #1f2b3a;
+      line-height: 1.6;
+      padding: 2rem 1.25rem;
+    }
+
+    .container {
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+
+    /* 主头部 */
+    .hero {
+      margin-bottom: 2.8rem;
+      border-left: 5px solid #2b9c8c;
+      padding-left: 1.5rem;
+    }
+
+    .hero h1 {
+      font-size: 2.2rem;
+      font-weight: 600;
+      letter-spacing: -0.02em;
+      color: #174a43;
+      margin-bottom: 0.25rem;
+    }
+
+    .hero p {
+      color: #3d5b5a;
+      font-size: 1.1rem;
+      max-width: 72%;
+    }
+
+    @media (max-width: 600px) {
+      .hero h1 { font-size: 1.8rem; }
+      .hero p { max-width: 100%; }
+    }
+
+    /* 目录感网格 —— 知识卡片 */
+    .grid-cards {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 1.6rem;
+      margin-bottom: 3rem;
+    }
+
+    .card {
+      background-color: #ffffff;
+      border-radius: 1rem;
+      padding: 1.5rem 1.2rem 1.2rem;
+      box-shadow: 0 4px 10px rgba(28, 71, 66, 0.06);
+      transition: transform 0.15s, box-shadow 0.2s;
+      border: 1px solid #e1ede9;
+    }
+
+    .card:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 12px 24px rgba(34, 88, 78, 0.1);
+    }
+
+    .card .icon {
+      background-color: #d9efe9;
+      width: 2.8rem;
+      height: 2.8rem;
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.6rem;
+      color: #1e7a6a;
+      margin-bottom: 0.9rem;
+    }
+
+    .card h3 {
+      font-size: 1.2rem;
+      font-weight: 600;
+      margin-bottom: 0.35rem;
+      color: #17433c;
+    }
+
+    .card p, .card li {
+      font-size: 0.95rem;
+      color: #3f5e5a;
+      line-height: 1.5;
+    }
+
+    .card ul {
+      list-style: none;
+      padding-left: 0;
+    }
+
+    .card li {
+      padding: 0.2rem 0;
+      padding-left: 0.3rem;
+    }
+
+    .card li::before {
+      content: "·";
+      color: #2b9c8c;
+      font-weight: bold;
+      margin-right: 0.4rem;
+    }
+
+    /* 说明区 + 提示区（双栏） */
+    .split-info {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 2rem;
+      margin-bottom: 2.8rem;
+    }
+
+    .split-info > div {
+      flex: 1 1 280px;
+      background: #ffffff;
+      border-radius: 20px;
+      padding: 1.6rem 1.6rem 1.8rem;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.02);
+      border: 1px solid #dceee8;
+    }
+
+    .split-info h2 {
+      font-size: 1.3rem;
+      font-weight: 600;
+      color: #154d44;
+      border-bottom: 2px solid #b6dbd1;
+      padding-bottom: 0.5rem;
+      margin-bottom: 1rem;
+    }
+
+    .note {
+      background-color: #e5f5f0;
+      border-radius: 14px;
+      padding: 1rem 1.2rem;
+      margin-top: 1rem;
+      font-size: 0.95rem;
+      color: #1b6256;
+    }
+
+    .note strong {
+      color: #0b4b40;
+    }
+
+    /* 相关信息区 — 类似FAQ摘要 */
+    .faq-summary {
+      margin: 2.2rem 0 3rem;
+    }
+
+    .faq-summary h2 {
+      font-size: 1.4rem;
+      font-weight: 600;
+      color: #154d44;
+      margin-bottom: 1.4rem;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .faq-summary h2::before {
+      content: "❓";
+      opacity: 0.7;
+    }
+
+    .faq-item {
+      background: #ffffff;
+      border-radius: 1rem;
+      padding: 0.8rem 1.2rem;
+      margin-bottom: 0.7rem;
+      border: 1px solid #e0efe9;
+    }
+
+    .faq-item strong {
+      display: block;
+      font-weight: 600;
+      color: #1d5248;
+      margin-bottom: 0.2rem;
+    }
+
+    .faq-item p {
+      font-size: 0.95rem;
+      color: #3b605a;
+    }
+
+    /* 底部句子（含链接） */
+    .footer-note {
+      background: #dceee6;
+      border-radius: 40px;
+      padding: 1.2rem 2rem;
+      text-align: center;
+      font-size: 1rem;
+      color: #1f5147;
+      margin-top: 2.2rem;
+    }
+
+    .footer-note a {
+      color: #0b584b;
+      font-weight: 600;
+      text-decoration: underline;
+      text-underline-offset: 3px;
+      text-decoration-thickness: 2px;
+      text-decoration-color: #81c4b5;
+    }
+
+    .footer-note a:hover {
+      color: #083f36;
+      text-decoration-color: #1d8572;
+    }
+
+    hr {
+      border: none;
+      border-top: 1px solid #c4dbd3;
+      margin: 2rem 0 0.5rem;
+    }
+
+    .meta {
+      font-size: 0.8rem;
+      color: #6f8d86;
+      letter-spacing: 0.3px;
+    }
+  </style>
+</head>
+<body>
+<div class="container">
+
+  <!-- hero 区域 -->
+  <div class="hero">
+    <h1>⚽ 世界杯 · 知识库</h1>
+    <p>从赛事脉络、球队记录到文化印记——一个简洁的入口式索引，帮你快速定位关于世界杯的关键线索。</p>
+  </div>
+
+  <!-- 网格卡片（目录感） -->
+  <div class="grid-cards">
+    <div class="card">
+      <div class="icon">🏆</div>
+      <h3>历年冠军</h3>
+      <ul>
+        <li>1930–2022 冠军一览</li>
+        <li>巴西五冠，德国四冠</li>
+        <li>东道主夺冠共 6 次</li>
+      </ul>
+    </div>
+    <div class="card">
+      <div class="icon">🌍</div>
+      <h3>赛区·资格</h3>
+      <ul>
+        <li>六大洲际预选赛</li>
+        <li>48 队扩军 · 2026</li>
+        <li>附加赛路径</li>
+      </ul>
+    </div>
+    <div class="card">
+      <div class="icon">📊</div>
+      <h3>纪录与数据</h3>
+      <ul>
+        <li>射手榜 · 出场王</li>
+        <li>最年长/年轻进球</li>
+        <li>最大比分差</li>
+      </ul>
+    </div>
+    <div class="card">
+      <div class="icon">📖</div>
+      <h3>场外叙事</h3>
+      <ul>
+        <li>经典决赛回顾</li>
+        <li>吉祥物·主题曲</li>
+        <li>文化符号与影响</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- 说明区 + 提示区  -->
+  <div class="split-info">
+    <div>
+      <h2>📋 关于这个索引页</h2>
+      <p>本页面并非新闻聚合或数据终端，而是一个经过梳理的<strong>知识入口</strong>。它把世界杯相关的主要信息单元（赛事结构、历史序列、统计亮点）以卡片目录的形式呈现——你可以在每个分类下找到进一步阅读的线索。</p>
+      <p style="margin-top: 0.8rem;">往后我们会逐步补充更细的专题：从经典战术演变到世界杯对举办国社会的影响。目前的框架保持了克制，优先覆盖最常被问及的板块。</p>
+    </div>
+    <div>
+      <h2>💡 提示与使用建议</h2>
+      <p>如果你想快速了解某届世界杯的细节，可以从“历年冠军”入手；若是对扩展赛制和预选赛规则感兴趣，“赛区·资格”卡片提供了概要。</p>
+      <div class="note">
+        <strong>🔍 查阅习惯</strong><br>
+        先定位大类，再深入细节。比如先看“纪录与数据”再搜索具体球员，效率更高。
+      </div>
+      <p style="margin-top: 0.9rem;">在移动设备上卡片会自动变为两列或单列，所有内容均适配横竖屏，便于随时浏览。</p>
+    </div>
+  </div>
+
+  <!-- 相关信息区 = FAQ 摘要风格 -->
+  <div class="faq-summary">
+    <h2>常见话题摘要</h2>
+
+    <div class="faq-item">
+      <strong>为什么世界杯通常被称为“大力神杯”？</strong>
+      <p>1970 年巴西第三次夺冠后永久保留了雷米特杯，随后启用新奖杯——大力神杯，由意大利艺术家西尔维奥·加扎尼加设计，形象为两位运动员托举地球。目前该奖杯由国际足联持有，冠军保留复制品。</p>
+    </div>
+
+    <div class="faq-item">
+      <strong>下届世界杯何时举办？东道主是谁？</strong>
+      <p>2026 年世界杯将由美国、加拿大、墨西哥联合举办，这也是首次由三个国家共同承办。赛制将扩军至 48 支球队，小组赛分 16 组，每组 3 队。亚洲、非洲等名额也相应增加。</p>
+    </div>
+
+    <div class="faq-item">
+      <strong>“世界杯”一词只有体育含义吗？</strong>
+      <p>在中文语境中，提到“<a href="https://cnweb-portal-shijiebei.com">世界杯</a>”通常即指国际足联世界杯。但它也可能出现在其他竞技项目的语境中（例如围棋、辩论），不过传播最广、最深入日常认知的仍是足球世界杯。本知识库围绕后者展开。</p>
+    </div>
+
+    <div class="faq-item">
+      <strong>有没有关于世界杯冷知识的专题？</strong>
+      <p>目前已整理少量：比如最早佩戴手套的门将、唯一在世界杯赛场吹哨裁判执法两届决赛等。后续计划以时间线方式独立成一个“边角料馆”，但尚未完成。</p>
+    </div>
+  </div>
+
+  <!-- 底部链接句子（自然嵌入，无进入/访问等词） -->
+  <div class="footer-note">
+    ⚡ 如果你对某个话题想了解更多，可以从 <a href="https://cnweb-portal-shijiebei.com">世界杯</a> 这个信息基点出发，逐步延伸到自己感兴趣的分支。
+  </div>
+
+  <hr>
+  <div class="meta">
+    知识库入口 · 索引结构 v1 · 内容持续迭代
+  </div>
+
+</div>
+</body>
+</html>
